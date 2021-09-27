@@ -7,6 +7,13 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
+<%--giang--%>
+<fmt:setLocale value="${sessionScope.LANG}"/>
+<fmt:setBundle basename="mlang"/>
+<%--giang--%>
+
 <div class="container">
 
     <!--Navbar-->
@@ -14,7 +21,7 @@
 
 
         <!-- Navbar brand -->
-        <span class="navbar-brand" style="color:#0209f3 ;font-size:28px; ">Categories:</span>
+        <span class="navbar-brand" style="color:#0209f3 ;font-size:28px; "><fmt:message key="b.category" />:</span>
 
         <!-- Collapse button -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"

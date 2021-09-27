@@ -11,7 +11,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <%--giang--%>
-<fmt:setLocale value="en"/>
+<fmt:setLocale value="${sessionScope.LANG}"/>
 <fmt:setBundle basename="mlang"/>
 <%--giang--%>
 
@@ -52,16 +52,16 @@
 
                 <div class="btn-group ms-3">
                     <button type="button" class="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                        ">🇬🇧 English
+                        <fmt:message key="a.language"/>
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item">🇬🇧 English</a></li>
-                        <li><a class="dropdown-item">🇻🇳 Tiếng Việt</a></li>
+                        <li><a class="dropdown-item" href="?lang=vi"><fmt:message key="a.Vietnamese"/></a></li>
+                        <li><a class="dropdown-item" href="?lang=en"><fmt:message key="a.English"/></a></li>
                     </ul>
                 </div>
                 <%--                    giang--%>
                 <%--                    <button class="b.n btn-outline-success" type="submit" id="login" formaction="/login.jsp">Login</button>--%>
-                <button id="login" type="button" class="guest btn btn-primary ms-3 d-none" data-bs-toggle="modal" data-bs-target="#modal-login"><span>Login</span></button>
+                <button id="login" type="button" class="guest btn btn-primary ms-3 d-none" data-bs-toggle="modal" data-bs-target="#modal-login"><span><fmt:message key="a.login"/></span></button>
                 <div id="login-spinner" class="spinner-border text-light ms-3" role="status"></div>
                 <div class="dropdown">
                     <img id="avatar" th:src="@{/assets/avatar.jpg}" src="./assets/avatar.jpg" data-bs-toggle="dropdown" width="38x" height="38x"
