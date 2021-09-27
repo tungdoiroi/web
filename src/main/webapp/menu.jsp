@@ -6,12 +6,13 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <%--giang--%>
-<fmt:setLocale value="vi"/>
-<fmt:setBundle basename="i18n.mlang"/>
+<fmt:setLocale value="en"/>
+<fmt:setBundle basename="mlang"/>
 <%--giang--%>
 
 
@@ -30,7 +31,7 @@
                     <a class="nav-link" style="color:#afafd0 ;font-size:20px;" href="#"><fmt:message key="a.hot" /></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" style="color:#afafd0 ;font-size:20px;" href="#"><fmt:message bundle="i18n."/></a>
+                    <a class="nav-link" style="color:#afafd0 ;font-size:20px;" href="#"><fmt:message key="a.trending"/></a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" style="color:#afafd0 ;font-size:20px;" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
