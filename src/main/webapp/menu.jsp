@@ -64,7 +64,7 @@
                 <button id="login" type="button" class="guest btn btn-primary ms-3 d-none" data-bs-toggle="modal" data-bs-target="#modal-login"><span><fmt:message key="a.login"/></span></button>
                 <div id="login-spinner" class="spinner-border text-light ms-3" role="status"></div>
                 <div class="dropdown">
-                    <img id="avatar" th:src="@{/assets/avatar.jpg}" src="./assets/avatar.jpg" data-bs-toggle="dropdown" width="38x" height="38x"
+                    <img id="avatar"  src="./assets/avatar.jpg" data-bs-toggle="dropdown" width="38x" height="38x"
                          class="user avatar rounded-circle ms-3 d-none dropdown-toggle">
                     <ul class="dropdown-menu dropdown-menu-center text-small" aria-labelledby="dropdownUser1">
                         <li><a class="dropdown-item" href="#">Settings</a></li>
