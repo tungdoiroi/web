@@ -1,4 +1,4 @@
-<%--
+-<%--
   Created by IntelliJ IDEA.
   User: THU HUONG
   Date: 9/3/2021
@@ -410,27 +410,38 @@ height:800px;
                 <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
                     ${detail.description}
                 </div>
+
+<%--                review--%>
                 <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
                     <div class="review-heading">REVIEWS</div>
-                    <p class="mb-20">There are no reviews yet.</p>
+                    <p class="mb-20">Add your reviews.</p>
+                    <div>
+
+                        <c:forEach items="${listCmt}" var="o">
+                            <li class="nav-item ">
+
+                            </li>
+                        </c:forEach>
+
+                    </div>
                     <form class="review-form">
-                        <div class="form-group">
-                            <label>Your rating</label>
-                            <div class="reviews-counter">
-                                <div class="rate">
-                                    <input type="radio" id="star5" name="rate" value="5" />
-                                    <label for="star5" title="text">5 stars</label>
-                                    <input type="radio" id="star4" name="rate" value="4" />
-                                    <label for="star4" title="text">4 stars</label>
-                                    <input type="radio" id="star3" name="rate" value="3" />
-                                    <label for="star3" title="text">3 stars</label>
-                                    <input type="radio" id="star2" name="rate" value="2" />
-                                    <label for="star2" title="text">2 stars</label>
-                                    <input type="radio" id="star1" name="rate" value="1" />
-                                    <label for="star1" title="text">1 star</label>
-                                </div>
-                            </div>
-                        </div>
+<%--                        <div class="form-group">--%>
+<%--                            <label>Your rating</label>--%>
+<%--                            <div class="reviews-counter">--%>
+<%--                                <div class="rate">--%>
+<%--                                    <input type="radio" id="star5" name="rate" value="5" />--%>
+<%--                                    <label for="star5" title="text">5 stars</label>--%>
+<%--                                    <input type="radio" id="star4" name="rate" value="4" />--%>
+<%--                                    <label for="star4" title="text">4 stars</label>--%>
+<%--                                    <input type="radio" id="star3" name="rate" value="3" />--%>
+<%--                                    <label for="star3" title="text">3 stars</label>--%>
+<%--                                    <input type="radio" id="star2" name="rate" value="2" />--%>
+<%--                                    <label for="star2" title="text">2 stars</label>--%>
+<%--                                    <input type="radio" id="star1" name="rate" value="1" />--%>
+<%--                                    <label for="star1" title="text">1 star</label>--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
                         <div class="form-group">
                             <label>Your message</label>
                             <textarea class="form-control" rows="10"></textarea>
@@ -450,6 +461,7 @@ height:800px;
                         <button class="round-black-btn">Submit Review</button>
                     </form>
                 </div>
+<%--                review--%>
             </div>
         </div>
     </div>

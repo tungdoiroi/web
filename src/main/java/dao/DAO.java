@@ -3,10 +3,12 @@ package dao;
 
 import entity.Category;
 import entity.Product;
+import entity.Comment;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * @author trinh
@@ -52,6 +54,9 @@ public class DAO {
         }
         return list;
     }
+
+
+
     public List<Category> getAllCategory() {
         List<Category> list = new ArrayList<>();
         String query = "select *from category";
@@ -78,6 +83,7 @@ public class DAO {
                 "where cateID=?";
         try {
             conn = new DAO().getConnection();//mo ket noi voi sql
+
             ps = conn.prepareStatement(query);
             ps.setString(1,cid);
             rs = ps.executeQuery();
@@ -114,6 +120,53 @@ public class DAO {
         }
         return null;
     }
+    //    giang
+    public List<Product> searchByName(String txtSearch) {
+        List<Product> list = new ArrayList<>();
+        String query = "select * from product"+ "\n" +
+                "where name like ?";
+        String txtSearch2= txtSearch.toUpperCase();
+        try {
+            conn = new DAO().getConnection();//mo ket noi voi sql
+            ps = conn.prepareStatement(query);
+            ps.setString(1,"%"+txtSearch2+"%");
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Product(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getDouble(4),
+                        rs.getString(5),
+                        rs.getString(6)));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
+
+    public List<Comment> getComment(String id) {
+        List<Comment> list = new ArrayList<>();
+        String query = "select * from comment"+ "\n" +
+                "where id=?";
+        try {
+            conn = new DAO().getConnection();//mo ket noi voi sql
+            ps = conn.prepareStatement(query);
+            ps.setString(1,id);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                while (rs.next()) {
+                    list.add(new Comment(rs.getInt(1),
+                            rs.getString(2),
+                            rs.getString(3),
+                            rs.getString(4)));
+                }
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
+
+//    giang
 
     //    public static void main(String[] args) {
 //
@@ -127,17 +180,15 @@ public class DAO {
 //    }
     public static void main(String[] args) {
 
-        DAO dao = new DAO();
-//        List<Product> list = dao.getAllProduct();
-        List<Category> listC = dao.getAllCategory();
-        List<Product> listPC = dao.getProductCID("2");
-        Product listPI = dao.getProductID("2");
+//        DAO dao = new DAO();
+////        List<Product> list = dao.getAllProduct();
+//        List<Category> listC = dao.getAllCategory();
+//        List<Product> listPC = dao.getProductCID("2");
+//        Product listPI = dao.getProductID("2");
 
-        System.out.println(listPI);
-
-        for (Product c : listPC) {
-            System.out.println(c);
-        }
+        DAO dao1 = new DAO();
+        List<Product> listu = dao1.searchByName("NAM");
+        System.out.println(listu);
 
 
     }
