@@ -47,7 +47,7 @@
 
             </ul>
             <form class="d-flex" style="margin-top: 1px; margin-bottom: 1px;" >
-                <button class="btn hover" type="submit"><span><img src="https://cdn-icons-png.flaticon.com/128/3144/3144456.png" style="width: 25px; margin-right: 10px"></span></button>
+                <button class="btn hover" type="submit"><span><img src="https://cdn-icons-png.flaticon.com/128/3144/3144456.png" style="width: 25px; margin-right: 10px"><a class="nav-link" href="print">Cart</a></span></button>
 
 
                 <div class="btn-group ms-3">
