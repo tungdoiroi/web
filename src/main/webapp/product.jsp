@@ -12,6 +12,8 @@
 <%@ page import="java.util.List" %>
 <%@ page import="dao.DAO" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<%@ page import="dao.DAO" %>
 <!------ Include the above in your HEAD tag ---------->
 <html>
 <head>
@@ -43,6 +45,14 @@
     <%--    giang--%>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+
+
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+
+
 
     <style>
         .pd-wrap {
@@ -320,6 +330,105 @@ height:800px;
             background-image: url("https://www.mechatronicsart.com/wp-content/uploads/2016/06/Vilarpac_website_background.jpg");
             background-attachment: fixed;
         }
+
+
+
+
+        body {
+            background-color: #D32F2F;
+            font-family: 'Calibri', sans-serif !important
+        }
+
+        .mt-100 {
+            margin-top: 100px
+        }
+
+        .mb-100 {
+            margin-bottom: 100px
+        }
+
+        .card {
+            position: relative;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            min-width: 0;
+            word-wrap: break-word;
+            background-color: #fff;
+            background-clip: border-box;
+            border: 0px solid transparent;
+            border-radius: 0px
+        }
+
+        .card-body {
+            -webkit-box-flex: 1;
+            -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+            padding: 1.25rem
+        }
+
+        .card .card-title {
+            position: relative;
+            font-weight: 600;
+            margin-bottom: 10px
+        }
+
+        .comment-widgets {
+            position: relative;
+            margin-bottom: 10px
+        }
+
+        .comment-widgets .comment-row {
+            border-bottom: 1px solid transparent;
+            padding: 14px;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            margin: 10px 0
+        }
+
+        .p-2 {
+            padding: 0.5rem !important
+        }
+
+        .comment-text {
+            padding-left: 15px
+        }
+
+        .w-100 {
+            width: 100% !important
+        }
+
+        .m-b-15 {
+            margin-bottom: 15px
+        }
+
+        .btn-sm {
+            padding: 0.25rem 0.5rem;
+            font-size: 0.76563rem;
+            line-height: 1.5;
+            border-radius: 1px
+        }
+
+        .btn-cyan {
+            color: #fff;
+            background-color: #27a9e3;
+            border-color: #27a9e3
+        }
+
+        .btn-cyan:hover {
+            color: #fff;
+            background-color: #1a93ca;
+            border-color: #198bbe
+        }
+
+        .comment-widgets .comment-row:hover {
+            background: rgba(0, 0, 0, 0.05)
+        }
     </style>
     </head>
 <body>
@@ -392,7 +501,11 @@ height:800px;
                             <input type="text" name="quantity" value="1" class="qty">
                             <div class="qtyplus">+</div>
                         </form>
-                        <a href="#" class="round-black-btn">Add to Cart</a>
+<%--                        <a href="#" class="round-black-btn">Add to Cart</a>--%>
+                        <a href="print" class="btn btn-primary">Add to Cart</a>
+
+
+
                     </div>
                 </div>
             </div>
@@ -414,51 +527,59 @@ height:800px;
 <%--                review--%>
                 <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
                     <div class="review-heading">REVIEWS</div>
-                    <p class="mb-20">Add your reviews.</p>
-                    <div>
 
-                        <c:forEach items="${listCmt}" var="o">
-                            <li class="nav-item ">
 
-                            </li>
-                        </c:forEach>
+                    <div class="row d-flex justify-content-left mt-500 mb-500">
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <h4 class="card-title">Latest Comments</h4>
+                                </div>
+                                <div class="comment-widgets">
+                                    <!-- Comment Row -->
+                                    <div class="d-flex flex-row comment-row m-t-0">
 
+                                        <div class="comment-text w-100">
+                                            <c:forEach items="${listCmt}" var="o">
+                                                <div class="p-2"><img src="https://i.imgur.com/Ur43esv.jpg" alt="user" width="50" class="rounded-circle"></div>
+                                                <h6 class="font-medium"><span>${o.ten}</span></h6> <span class="m-b-15 d-block"><span>${o.cmt}</span></span>
+                                                <div class="comment-footer"> <span class="text-muted float-right">Thank and love you</span>
+                                                    <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                                                </div>
+                                            </c:forEach>
+                                        </div>
+                                    </div> <!-- Comment Row -->
+
+                                </div> <!-- Card -->
+                            </div>
+                        </div>
                     </div>
-                    <form class="review-form">
-<%--                        <div class="form-group">--%>
-<%--                            <label>Your rating</label>--%>
-<%--                            <div class="reviews-counter">--%>
-<%--                                <div class="rate">--%>
-<%--                                    <input type="radio" id="star5" name="rate" value="5" />--%>
-<%--                                    <label for="star5" title="text">5 stars</label>--%>
-<%--                                    <input type="radio" id="star4" name="rate" value="4" />--%>
-<%--                                    <label for="star4" title="text">4 stars</label>--%>
-<%--                                    <input type="radio" id="star3" name="rate" value="3" />--%>
-<%--                                    <label for="star3" title="text">3 stars</label>--%>
-<%--                                    <input type="radio" id="star2" name="rate" value="2" />--%>
-<%--                                    <label for="star2" title="text">2 stars</label>--%>
-<%--                                    <input type="radio" id="star1" name="rate" value="1" />--%>
-<%--                                    <label for="star1" title="text">1 star</label>--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
+
+
+
+
+                    <p class="mb-20">Add your reviews.</p>
+                    <form class="review-form" action="comment" method="post">
                         <div class="form-group">
                             <label>Your message</label>
-                            <textarea class="form-control" rows="10"></textarea>
+                            <label class="ui-helper-hidden-accessible"></label>
+                            <textarea name="cmt" class="form-control" rows="10"></textarea>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" name="" class="form-control" placeholder="Name*">
+                                    <input type="text" name="ten" class="form-control" placeholder="Name*">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" name="" class="form-control" placeholder="Email Id*">
+                                    <input type="text" name="gmail" class="form-control" placeholder="Email Id*">
                                 </div>
                             </div>
                         </div>
-                        <button class="round-black-btn">Submit Review</button>
+
+                            <button type="submit" class="round-black-btn">Submit Review</button>
+
                     </form>
                 </div>
 <%--                review--%>

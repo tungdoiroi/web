@@ -3,6 +3,7 @@ package control;
 
 import dao.DAO;
 import entity.Category;
+import entity.Comment;
 import entity.Product;
 
 import javax.servlet.RequestDispatcher;
@@ -20,9 +21,15 @@ public class DetailControl extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String PROID= req.getParameter("pid");
         String cateID=req.getParameter("cid");
+//        String PROID= req.getParameter("id");
+//        String cateID=req.getParameter("id");
         DAO dao = new DAO();
         List<Category> listC = dao.getAllCategory();
         List<Product> listPC = dao.getProductCID(cateID);
+
+        List<Comment> listCmt = dao.getComment();
+        req.setAttribute("listCmt",listCmt);
+
         Product proid= dao.getProductID(PROID);
         req.setAttribute("detail",proid);
         req.setAttribute("listCC",listC);

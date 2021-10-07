@@ -1,29 +1,29 @@
 package entity;
 
 public class Comment {
-    private int id;
-    private String ten;
     private String cmt;
     private String gmail;
+    private String ten;
+    private String id;
 
-    public Comment(int id, String ten, String cmt, String gmail) {
-        this.id = id;
-        this.ten = ten;
+    public Comment(String cmt, String gmail, String ten, String id) {
         this.cmt = cmt;
         this.gmail = gmail;
+        this.ten = ten;
+        this.id = id;
     }
 
     @Override
     public String toString() {
         return "Comment{" +
-                "id=" + id +
-                ", ten='" + ten + '\'' +
-                ", cmt='" + cmt + '\'' +
+                "cmt='" + cmt + '\'' +
                 ", gmail='" + gmail + '\'' +
+                ", ten='" + ten + '\'' +
+                ", id=" + id +
                 '}';
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -39,7 +39,7 @@ public class Comment {
         this.gmail = gmail;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
